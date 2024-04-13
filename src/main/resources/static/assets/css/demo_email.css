@@ -1,0 +1,21 @@
+html,* { font-family: 'Inter'; box-sizing: border-box; }
+body { line-height:1.6;}
+.lead { font-size: 1.5rem; font-weight: 300; }
+.container { margin: 150px auto; max-width: 960px; }
+
+hr {
+	height		: 0;
+	border-top	: 1px solid #158daa;
+}
+
+.tagtext-type {
+	margin		: 36px 0;
+}
+
+label {
+	float		: left;
+	min-width	: 40px;
+	margin-right: 12px;
+	font-size	: 20px;
+	line-height	: 36px;
+}

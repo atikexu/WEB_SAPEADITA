@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <script defer src="../assets/js/peerjs.min.js"></script>
+    <style>
+        video {
+            width: 300px;
+            height: 225px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+	<button id="requestPermissionButton">Solicitar Permiso</button>
+	
+    <h1>Video Chat</h1>
+
+    <video id="localVideo" autoplay muted playsinline></video>
+    <video id="remoteVideo1" autoplay playsinline></video>
+    <video id="remoteVideo2" autoplay playsinline></video>
+
+    <script src="../assets/js/video.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const requestPermissionButton = document.getElementById('requestPermissionButton');
+
+            requestPermissionButton.addEventListener('click', async () => {
+                try {
+                    // Solicitar permisos al usuario
+                    const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+
+                    // Permiso concedido, puedes hacer algo con el stream, por ejemplo, mostrarlo en un elemento de video
+                    const videoElement = document.createElement('video');
+                    videoElement.srcObject = stream;
+                    videoElement.autoplay = true;
+                    document.body.appendChild(videoElement);
+                } catch (error) {
+                    console.error('Error al solicitar permisos:', error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

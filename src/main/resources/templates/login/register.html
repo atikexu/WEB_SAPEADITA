@@ -1,0 +1,208 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sapeadita</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/icon/logo1.png">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/metisMenu.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/slicknav.min.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="../assets/css/typography.css">
+    <link rel="stylesheet" href="../assets/css/default-css.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- modernizr css -->
+    <script src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+<!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- login area start -->
+    <div class="login-area">
+        <div class="container">
+            <div class="login-box ptb--100">
+            	
+                <form th:action="@{/login/register}" th:object="${usuario}" method="POST" class="needs-validation">
+                	<div  class="logo1">
+	                    <a href="#"><img src="../assets/images/icon/logo1.png" alt="Archy"></a>
+	                </div>
+                    <div class="login-form-head">
+                        <h4>Registrarse</h4>
+                        <p>Hola, regístrese y únete a nosotros</p>
+<!--                         <i class="fa fa-warning"></i> -->
+                        <div class="text-warning">
+                        	<strong><span th:if="${mensajeValida!=''}"><i class="fa fa-warning"></i><span th:text="${mensajeValida}"></span></span></strong>
+                        </div>
+                    </div>
+                    <div class="login-form-body">
+                        <div class="form-gp">
+                            <label for="exampleInputName1">Nombre</label>
+                            <input type="text" id="nombre" th:field="*{nombre}" required>
+                            <i class="ti-user"></i>
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputEmail1">Usuario</label>
+                            <input type="text" id="username" th:field="*{username}" required minlength="4">
+                            <i class="ti-email"></i>
+                            <div class="text-danger"></div>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputEmail1">Correo</label>
+                            <input type="email" id="email" th:field="*{email}" required>
+                            <i class="ti-email"></i>
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputPassword1">Contraseña</label>
+                            <input type="password" id="password" name="password" th:field="*{password}" required minlength="8">
+                            <i class="ti-lock"></i>
+                            <div class="text-danger"></div>
+                        </div>
+                        <div class="form-gp">
+                            <label for="exampleInputPassword2">Confirmar contraseña</label>
+                            <input class="passw" type="password" id="password1" name="password1" required minlength="8">
+                            <i class="ti-lock"></i>
+                            <div class="text-danger"><span id="miSpanerror"></span>
+                            </div>
+                        </div>
+<!--                         <div class="form-footer text-center mt-5"> -->
+<!--                             <div class="spinner-border" align="center"></div> -->
+<!--                         </div> -->
+                        
+                        <div class="submit-btn-area">
+<!--                         	<input type="submit" value="Registrar"/> -->
+                            <button id="form_submit" type="submit">Registrar<i class="ti-arrow-right"></i>
+                         <div class="spinner-border spinner-border-sm" style="display:none;" id=div_spinner></div>
+                            </button>
+                            
+                            <div class="login-other row mt-4">
+<!--                                 <div class="col-6"> -->
+<!--                                     <a class="fb-login" href="#">Sign up with <i class="fa fa-facebook"></i></a> -->
+<!--                                 </div> -->
+<!--                                 <div class="col-6"> -->
+<!--                                     <a class="google-login" href="#">Sign up with <i class="fa fa-google"></i></a> -->
+<!--                                 </div> -->
+                            </div>
+                        </div>
+                        <div class="form-footer text-center mt-5">
+                            <p class="text-muted">Si ya tiene una cuenta <a th:href="@{/login/login}">Iniciar sesión</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- login area end -->
+
+    <!-- jquery latest version -->
+    <script src="../assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/metisMenu.min.js"></script>
+    <script src="../assets/js/jquery.slimscroll.min.js"></script>
+    <script src="../assets/js/jquery.slicknav.min.js"></script>
+    
+    
+    <!-- others plugins -->
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+    	var indicaSpinn = '';
+    	var boton = document.getElementById('form_submit');
+//     	boton.disabled = true;
+//     	console.log("AAAAA ");
+    	$("#form_submit").click(function(event){
+
+//     	    alert('El nombre '+indicaSpinn+" - "+indicaSpinn);
+    	    if (indicaSpinn == '1') {
+    	    	$('#div_spinner').show();
+	    	} else{
+// 	    		event.preventDefault();
+	    	}
+    	});
+
+// 			document.getElementById('myFormRegister').addEventListener('submit', function(event) {
+// 	    	    const usernameInput = document.getElementById('password');
+// 	    	    const usernameInput1 = document.getElementById('password1');
+
+// 	    	    alert('El nombre '+usernameInput.val()+" - "+usernameInput1.val());	
+// 	    	    if (usernameValue.length <= 4) {
+// 	    	      alert('El nombre de usuario debe tener más de 4 caracteres.');
+// 	    	      event.preventDefault(); // Detiene el envío del formulario si la validación falla
+// 	    	    }
+// 	    	  });
+			
+// 	    	function validarContrasenas() {
+// 	    	      var password = document.getElementById('password').value;
+// 	    	      var password1 = document.getElementById('password1').value;
+// 					alert(password+" son o no "+password1);
+// 	    	      if (password !== password1) {
+// 	    	         $('#text-dangerconfirm').html('Las contraseñas no coinciden. Por favor, ingreselas nuevamente.');
+// 	    	         return false;
+// 	    	      }
+
+// 	    	      return true;
+// 	    	   }
+	    	
+	    	var passwordInput = document.querySelector('.passw');
+
+	    	// Agregar un evento de escucha para el evento 'input'
+	    	passwordInput.addEventListener('input', function() {
+	    		
+	    	    // Obtener el valor del campo de entrada
+	    	    var passwordValue = this.value;
+	    	    var password = document.getElementById('password').value;
+	    	    // Hacer algo con el valor obtenido, por ejemplo, imprimirlo en la consola
+// 	    	    console.log('Valor del campo de entrada:', passwordValue);
+	    	    var miSpan = document.getElementById('miSpanerror');
+	    	    if (password !== passwordValue) {
+// 	    	    	console.log("DIFERENTES");
+	    	    	miSpan.textContent = 'Las contraseñas no coinciden. Por favor, ingreselas nuevamente.';
+	    	    	indicaSpinn = '0';
+	    	    	event.preventDefault();
+	    	    } else{
+// 	    	    	console.log("IGUALES");
+// 	    	    	boton.disabled = false;
+	    	    	miSpan.textContent = '';
+	    	    	indicaSpinn = '1';
+	    	    }
+	    	    // Establecer el contenido del span utilizando la propiedad textContent
+	    		
+// 	    	    $('#text-dangerconfirm').html('Las contraseñas no coinciden. Por favor, ingreselas nuevamente.');
+	    	});
+	    	
+	    
+    });
+    </script>
+</body>
+
+</html>
